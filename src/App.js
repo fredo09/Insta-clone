@@ -1,25 +1,70 @@
-import logo from './logo.svg';
+/**
+*   Componente App 
+**/
+import React, { useState, useEffect, useMemo } from 'react';
+import { ApolloProvider } from '@apollo/client';
+import { client } from './config/apollo';
+import { ToastContainer } from 'react-toastify';
+import { getToken } from './utils/token';
+import { AuthContext } from './context/AuthContext';
+
+import { Auth } from './pages/Auth';
+import { Home } from './pages/Home';
+
 import './App.css';
 
-function App() {
+export const App = () => {
+  // State 
+  const [ auth, setAuth ] = useState(undefined);
+
+  useEffect(() => {
+    //Recuperamos el token del localstorege
+    const token = getToken();
+
+    if(!token) {
+      setAuth(null);
+    } else {
+      setAuth(token);
+    }
+
+  }, []);
+
+  //deslogeo del usuario 
+  const logout = () => {
+    console.log('deslogueo del usuario');
+  }
+
+  //Seteando el usuario
+  const setUser = (user) => {
+    // recibe el token 
+    setAuth(user);
+  }
+
+  // revisa si llega nuevas varibles para renderizar el componente
+  const authDate = useMemo(() => ({
+    auth,
+    logout,
+    setUser
+  }), [auth]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <AuthContext.Provider value={authDate}>
+        {
+          !auth ? <Auth /> :  <Home />
+        }
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rlt={true}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </AuthContext.Provider>
+    </ApolloProvider>
   );
 }
-
-export default App;
