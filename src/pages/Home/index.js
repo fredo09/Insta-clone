@@ -5,6 +5,8 @@
 import React from 'react';
 import useAuth from './../../hooks/useContext';
 
+import './Home.scss';
+
 export const Home = () => {
 
     //Obteninedo el token del usuario logeado

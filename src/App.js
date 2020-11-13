@@ -1,6 +1,7 @@
 /**
 *   Componente App 
 **/
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './config/apollo';
@@ -9,7 +10,7 @@ import { getToken } from './utils/token';
 import { AuthContext } from './context/AuthContext';
 
 import { Auth } from './pages/Auth';
-import { Home } from './pages/Home';
+import { Navegacion } from './routers/Navegacion';
 
 import './App.css';
 
@@ -51,7 +52,7 @@ export const App = () => {
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authDate}>
         {
-          !auth ? <Auth /> :  <Home />
+          !auth ? <Auth /> :  <Navegacion />
         }
         <ToastContainer
           position="top-right"
