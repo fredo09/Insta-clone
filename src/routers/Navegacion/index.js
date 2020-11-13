@@ -14,12 +14,14 @@ export const Navegacion = () => {
         <Router>
             <Switch>
                 {map(Routers, (route, index) => (
-                    <Router 
+                    <Route 
                         key={index}
                         path={route.path}
                         exact={route.exact}
-                        render={(props)=> (
-                            <route.component {...props} />
+                        render={(props) => (
+                            <route.layout>
+                                <route.component {...props} />
+                            </route.layout>
                         )}
                     />
                 ))}

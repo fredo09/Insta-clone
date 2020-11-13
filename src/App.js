@@ -6,7 +6,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './config/apollo';
 import { ToastContainer } from 'react-toastify';
-import { getToken } from './utils/token';
+import { getToken, decodeToken } from './utils/token';
 import { AuthContext } from './context/AuthContext';
 
 import { Auth } from './pages/Auth';
@@ -25,7 +25,7 @@ export const App = () => {
     if(!token) {
       setAuth(null);
     } else {
-      setAuth(token);
+      setAuth(decodeToken(token));
     }
 
   }, []);
