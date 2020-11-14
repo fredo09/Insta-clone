@@ -48,6 +48,9 @@ export const App = () => {
     setUser
   }), [auth]);
 
+  //Evitamos que el login aparesca cada vez que se recargue la pagina
+  if (auth === undefined) return null;
+
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authDate}>

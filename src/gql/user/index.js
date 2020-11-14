@@ -24,3 +24,18 @@ export const LOGIN_USER = gql`
     }
 }
 `;
+
+//  Query GET_USER
+export const GET_USER = gql`
+    query getUser($id: ID, $username: String ){
+        getUser(id: $id, username: $username ){
+            id
+            name
+            username
+            email
+            siteWeb
+            description
+            avatar
+        }
+    }
+`;
