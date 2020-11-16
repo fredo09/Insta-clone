@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { Modal } from 'semantic-ui-react';
+
 import './Modal.scss';
 
 export const ModalBasic = ({ show, setShow, title, children }) => {

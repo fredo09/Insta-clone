@@ -18,8 +18,8 @@ export const Profile = ({ username }) => {
 
     //state Modal
     const [ showModal, setShowModal ] = useState(false);
-    const [title, setTitle] = useState('');
-    const [childrenModal, setChildrenModal] = useState(null);
+    const [ title, setTitle ] = useState('');
+    const [ childrenModal, setChildrenModal ] = useState(null);
 
     const { auth } = useAuth();
 
