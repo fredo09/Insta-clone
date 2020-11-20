@@ -19,7 +19,7 @@ export const AvatarForm = ({ setShowModal }) => {
     const onDrop = useCallback( async (acceptedFile) => {
 
         const file = acceptedFile[0];
-
+        console.log(file);
         try {
             const result = await uploadAvatar({ variables: { file } });
             console.log(result);
