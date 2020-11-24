@@ -5,12 +5,12 @@
 import React, { useState } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
-import { GET_USER } from './../../gql/user';
-import { UserNotFound } from './../../Componentes/UserNotFound';
-import { ModalBasic } from './../Modal';
-import { AvatarForm } from './../User/AvatarForm';
-import useAuth from './../../hooks/useContext';
-import ImageNotFound from './../../assets/png/avatar.png';
+import { GET_USER } from '../../../gql/user';
+import { UserNotFound } from '../../UserNotFound';
+import { ModalBasic } from '../../Modal';
+import { AvatarForm } from '../AvatarForm';
+import useAuth from '../../../hooks/useContext';
+import ImageNotFound from './../../../assets/png/avatar.png';
 
 import './Profile.scss';
 
@@ -22,6 +22,7 @@ export const Profile = ({ username }) => {
     const [ childrenModal, setChildrenModal ] = useState(null);
 
     const { auth } = useAuth();
+    
 
     //Graphql getUser
     const { data, loading, error } = useQuery(GET_USER, {
@@ -32,7 +33,10 @@ export const Profile = ({ username }) => {
     if (loading) return null;
     if (error) return <UserNotFound />
 
+    //Obteniendo data del servidor
     const { getUser } = data;
+
+    console.log(getUser);
 
     // Modal dependiendo del formulario
     const handleModal = (type) => {
@@ -41,7 +45,7 @@ export const Profile = ({ username }) => {
 
                 setTitle('Subir foto de perfil');
                 setChildrenModal(
-                    <AvatarForm setShowModal={setShowModal} />
+                    <AvatarForm setShowModal={setShowModal}  auth={auth}/>
                 );
                 setShowModal(true);
     
@@ -57,7 +61,7 @@ export const Profile = ({ username }) => {
             <Grid className="profile">
                 <Grid.Column width={5} className="profile__left">
                     <Image 
-                        src={ImageNotFound} 
+                        src={getUser.avatar ? getUser.avatar : ImageNotFound} 
                         avatar 
                         onClick={ () => username === auth.username && handleModal('avatar') } 
                         />

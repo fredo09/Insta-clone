@@ -49,3 +49,10 @@ export const UPLOAD_AVATAR = gql`
         }
     }
 `;
+
+//Delete Avatar
+export const DELETE_AVATAR = gql`
+    mutation deleteAvatar {
+        deleteAvatar
+    }
+`;

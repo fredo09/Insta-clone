@@ -3,7 +3,7 @@
 **/
 
 import React from 'react';
-import { Profile } from './../../Componentes/Profile';
+import { Profile } from './../../Componentes/User/Profile';
 import { useParams } from 'react-router-dom';
 
 export const User = () => {
