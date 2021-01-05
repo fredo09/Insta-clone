@@ -9,6 +9,8 @@ import { GET_USER } from '../../../gql/user';
 import { UserNotFound } from '../../UserNotFound';
 import { ModalBasic } from '../../Modal';
 import { AvatarForm } from '../AvatarForm';
+import { HeaderProfile } from './../Header-Profile';
+import { SettingProfile } from './../SettingsProfile';
 import useAuth from '../../../hooks/useContext';
 import ImageNotFound from './../../../assets/png/avatar.png';
 
@@ -25,7 +27,7 @@ export const Profile = ({ username }) => {
     
 
     //Graphql getUser
-    const { data, loading, error } = useQuery(GET_USER, {
+    const { data, loading, error, refetch } = useQuery(GET_USER, {
         variables: { username }
     });
 
@@ -50,7 +52,20 @@ export const Profile = ({ username }) => {
                 setShowModal(true);
     
                 break;
-        
+            case 'Settings':
+                setTitle('Editar perfil');
+                setChildrenModal(
+                    <SettingProfile 
+                        setShowModal={setShowModal}
+                        setChildrenModal={setChildrenModal}
+                        setTitle={setTitle}
+                        userInfo={getUser}
+                        refetch={refetch}
+                    />
+                );
+                setShowModal(true);
+
+                break;        
             default:
                 break;
         }
@@ -67,17 +82,15 @@ export const Profile = ({ username }) => {
                         />
                 </Grid.Column>
                 <Grid.Column width={11} className="profile__right">
-                    <div>
-                        header profile
-                    </div>
+                    <HeaderProfile  username={getUser.username} auth={auth} handleModal={handleModal}/>
                     <div>
                         Followers
                     </div>
                     <div className="others">
                         <p className="name">{getUser.name}</p>
-                        {getUser.siteWeb && (
-                            <a href={getUser.siteWeb} target="_blank" className="siteWeb">
-                                {getUser.siteWeb}
+                        {getUser.sitioWeb && (
+                            <a href={getUser.sitioWeb} target="_blank" className="siteWeb">
+                                {getUser.sitioWeb}
                             </a> 
                         )}
                         {getUser.description && (

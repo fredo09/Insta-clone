@@ -33,7 +33,7 @@ export const GET_USER = gql`
             name
             username
             email
-            siteWeb
+            sitioWeb
             description
             avatar
         }
@@ -54,5 +54,12 @@ export const UPLOAD_AVATAR = gql`
 export const DELETE_AVATAR = gql`
     mutation deleteAvatar {
         deleteAvatar
+    }
+`;
+
+//Actualizar contraseña 
+export const UPDATE_USER = gql`
+    mutation updateUser ($input: UpdateUserInput){
+        updateUser(input : $input)
     }
 `;

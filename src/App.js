@@ -6,7 +6,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './config/apollo';
 import { ToastContainer } from 'react-toastify';
-import { getToken, decodeToken } from './utils/token';
+import { getToken, decodeToken, removeToken } from './utils/token';
 import { AuthContext } from './context/AuthContext';
 
 import { Auth } from './pages/Auth';
@@ -32,7 +32,11 @@ export const App = () => {
 
   //deslogeo del usuario 
   const logout = () => {
-    console.log('deslogueo del usuario');
+    //removemos el token
+    removeToken();
+
+    //Cambiamos el estado de autenticacion del usuario
+    setAuth(null);
   }
 
   //Seteando el usuario

@@ -38,6 +38,8 @@ export const RegisterForm = ({ setShowLogin }) => {
                         input:newUser
                     }
                 });
+
+                console.log(result);
                 
                 // Mostrando mensaje de confirmación
                 toast.success('Usuario registrado')

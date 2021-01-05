@@ -25,6 +25,8 @@ export const RightHeader = () => {
 
     const { getUser } = data;
 
+    console.log(getUser);
+
     return(
         <>
             <div className="right-header">

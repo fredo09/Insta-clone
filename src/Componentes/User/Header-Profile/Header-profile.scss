@@ -1,0 +1,32 @@
+@import "./../../../scss/index.scss";
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 0 30px 0 0;
+  }
+
+  i.icon {
+    margin: 0 0 0 19px;
+    font-size: 19px;
+    color: $font-dark;
+    &:hover,
+    &:focus {
+      cursor: pointer !important;
+    }
+  }
+
+  button {
+    padding: 10px 15px !important;
+    color: $font-dark !important;
+    background-color: transparent !important;
+    border: 1px solid $border-grey !important;
+    &:hover,
+    &:focus {
+      background-color: transparent !important;
+    }
+  }
+}
