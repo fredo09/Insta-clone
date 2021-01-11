@@ -30,3 +30,16 @@ code {
     margin: 20px 0 0 0;
   }
 }
+
+//Styles Button
+.ui.button.btn-danger {
+  background-color: $danger !important;
+  color: $font-light !important;
+  border-color: $danger !important;
+}
+
+.ui.button.btn-action {
+  background-color: $action !important;
+  color: $font-light !important;
+  border-color: $action !important;
+}

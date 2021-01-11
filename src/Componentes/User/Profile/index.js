@@ -11,6 +11,7 @@ import { ModalBasic } from '../../Modal';
 import { AvatarForm } from '../AvatarForm';
 import { HeaderProfile } from './../Header-Profile';
 import { SettingProfile } from './../SettingsProfile';
+import { Followers } from './../../Followers';
 import useAuth from '../../../hooks/useContext';
 import ImageNotFound from './../../../assets/png/avatar.png';
 
@@ -38,8 +39,6 @@ export const Profile = ({ username }) => {
     //Obteniendo data del servidor
     const { getUser } = data;
 
-    console.log(getUser);
-
     // Modal dependiendo del formulario
     const handleModal = (type) => {
         switch (type) {
@@ -65,7 +64,7 @@ export const Profile = ({ username }) => {
                 );
                 setShowModal(true);
 
-                break;        
+                break;       
             default:
                 break;
         }
@@ -83,9 +82,7 @@ export const Profile = ({ username }) => {
                 </Grid.Column>
                 <Grid.Column width={11} className="profile__right">
                     <HeaderProfile  username={getUser.username} auth={auth} handleModal={handleModal}/>
-                    <div>
-                        Followers
-                    </div>
+                    <Followers username={username}/>
                     <div className="others">
                         <p className="name">{getUser.name}</p>
                         {getUser.sitioWeb && (
