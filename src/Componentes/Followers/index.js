@@ -11,8 +11,8 @@ import { ListUsers } from './../User/ListFollows';
 
 import './Followers.scss';
 
-export const Followers = ({ username }) => {
-
+export const Followers = ({ username, totalpublications }) => {
+    console.log('seguidaores ' ,totalpublications);
     //state Modal
     const [ showModal, setShowModal ] = useState(false);
     const [ title, setTitle ] = useState('');
@@ -76,7 +76,7 @@ export const Followers = ({ username }) => {
         <>
             <div className="followers">
                 <p>
-                    <span></span>
+                    <span>{totalpublications}</span>
                     publicaciones
                 </p>
                 <p className="link" onClick={onModalFollowers}>

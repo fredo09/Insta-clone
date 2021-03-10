@@ -17,8 +17,8 @@ import ImageNotFound from './../../../assets/png/avatar.png';
 
 import './Profile.scss';
 
-export const Profile = ({ username }) => {
-
+export const Profile = ({ username, totalPublications }) => {
+    console.log('aqui ', totalPublications);
     //state Modal
     const [ showModal, setShowModal ] = useState(false);
     const [ title, setTitle ] = useState('');
@@ -82,7 +82,7 @@ export const Profile = ({ username }) => {
                 </Grid.Column>
                 <Grid.Column width={11} className="profile__right">
                     <HeaderProfile  username={getUser.username} auth={auth} handleModal={handleModal}/>
-                    <Followers username={username}/>
+                    <Followers username={username} totalpublications={totalPublications}/>
                     <div className="others">
                         <p className="name">{getUser.name}</p>
                         {getUser.sitioWeb && (
