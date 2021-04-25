@@ -15,7 +15,7 @@ export const User = () => {
     const params = useParams();
 
     //Obteniendo publicaiones 
-    const { data, loading, startPolling, stopPolling} = useQuery(GET_PUBLICATION, {
+    const { data, loading, startPolling, stopPolling, error} = useQuery(GET_PUBLICATION, {
         variables: { username: params.username }
     });
 
@@ -27,10 +27,12 @@ export const User = () => {
         };
     },[stopPolling, startPolling])
 
-    if (loading) return null;
+    if (loading || error ) return null;
 
     //Obteninedo las publicaiones
     const { getPublications } = data;
+
+    if (!getPublications) return null;
 
     return(
         <>

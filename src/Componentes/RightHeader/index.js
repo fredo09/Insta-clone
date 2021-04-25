@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_USER } from './../../gql/user';
 import { ModalUPload } from './../ModalUPload';
-import AvatarImage from './../../assets/png/avatar.png'
+import AvatarImage from './../../assets/png/avatar.png';
 import useAuth from './../../hooks/useContext';
 
 import './RightHeader.scss';

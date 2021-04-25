@@ -18,7 +18,7 @@ import ImageNotFound from './../../../assets/png/avatar.png';
 import './Profile.scss';
 
 export const Profile = ({ username, totalPublications }) => {
-    console.log('aqui ', totalPublications);
+
     //state Modal
     const [ showModal, setShowModal ] = useState(false);
     const [ title, setTitle ] = useState('');
@@ -26,7 +26,6 @@ export const Profile = ({ username, totalPublications }) => {
 
     const { auth } = useAuth();
     
-
     //Graphql getUser
     const { data, loading, error, refetch } = useQuery(GET_USER, {
         variables: { username }
@@ -38,6 +37,8 @@ export const Profile = ({ username, totalPublications }) => {
 
     //Obteniendo data del servidor
     const { getUser } = data;
+
+    console.log(getUser);
 
     // Modal dependiendo del formulario
     const handleModal = (type) => {

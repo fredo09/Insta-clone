@@ -1,5 +1,5 @@
 /**
-*   Graphql Publications 
+*   Graphql Comments
 **/
 
 import { gql } from '@apollo/client';

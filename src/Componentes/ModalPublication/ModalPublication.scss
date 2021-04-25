@@ -1,0 +1,34 @@
+@import "./../../scss/index.scss";
+
+.modal_publications {
+  height: 620px !important;
+
+  .ui.grid {
+    margin: 0;
+    height: 100%;
+  }
+
+  &__left {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__right {
+    padding: 0px !important;
+    height: 100%;
+    .header_publications {
+      padding: 15px !important;
+
+      span {
+        font-weight: bold;
+        margin-left: 10px;
+        text-align: center;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
