@@ -10,6 +10,7 @@ import useAuth from './../../hooks/useContext';
 import AvatarImage from './../../assets/png/avatar.png';
 import { ModalComentarios } from './../ModalComentarios';
 import { Comment } from './../Comment';
+import { Actions } from './../Actions';
 
 import './ModalPublication.scss';
 
@@ -46,8 +47,7 @@ export const ModalPublications = ({ show, setShow, publication }) => {
                     <Divider />
                     <Comment publication={ publication }/>
                     <Divider />
-                    <div>Acciones</div>
-                    <Divider />
+                    <Actions publication={ publication }/>
                     <ModalComentarios publication={ publication }/>
                 </Grid.Column>
             </Grid>

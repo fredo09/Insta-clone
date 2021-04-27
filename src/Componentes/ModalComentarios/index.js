@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMutation } from '@apollo/client';
 import { Form, Button } from 'semantic-ui-react';
 import { useFormik } from 'formik';
@@ -10,7 +10,6 @@ import './ModalComentarios.scss';
 export const ModalComentarios = ({ publication }) => {
 
     // const [isButtonHabilitado, setIsButtonHabilitado] = useState(false);
-    console.log("mi id publication" , publication.id);
     const [ addComment ] = useMutation(ADD_COMMENTS);
 
     const formik = useFormik({
@@ -22,7 +21,7 @@ export const ModalComentarios = ({ publication }) => {
         }),
         onSubmit: async ( valuesForm ) => { 
             try {
-                const result = await addComment({
+                await addComment({
                     variables: {
                         input: {
                             idPublication: publication.id,
@@ -30,7 +29,6 @@ export const ModalComentarios = ({ publication }) => {
                         }
                     }
                 });
-                console.log(result);
                 formik.handleReset(); // reiniciando formualario
             } catch (error) {
                 console.log(error);

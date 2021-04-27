@@ -1,7 +1,7 @@
 @import "./../../scss/index.scss";
 
 .comments {
-  height: calc(100% - 95px);
+  height: calc(100% - 200px);
   overflow-y: scroll;
   .comment {
     display: flex;
