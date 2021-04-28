@@ -24,3 +24,20 @@ export const GET_PUBLICATION = gql`
         }
     }
 `;
+
+export const GET_FEED_PUBLICATION = gql`
+    query getPublicationsFeed {
+        getPublicationsFeed{
+            id
+            idUser{
+                id
+                name
+                username
+                avatar
+            }
+            file
+            typeFile
+            createAt
+        }
+    }    
+`;

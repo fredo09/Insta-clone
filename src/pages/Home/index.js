@@ -3,20 +3,27 @@
 **/
 
 import React from 'react';
-import useAuth from './../../hooks/useContext';
+import { Grid } from 'semantic-ui-react'
+import { FeedPublications } from './../../Componentes/Home/Feed';
 
 import './Home.scss';
 
 export const Home = () => {
 
-    //Obteninedo el token del usuario logeado
-    const authUser = useAuth();
-
-    console.log(authUser);
-
     return(
-        <div>
-            <h1>Listo para empezar a construir webApp 🚀</h1>
-        </div>
+        <Grid className="home">
+            <Grid.Column
+                className="home__left"
+                width={11}
+            >
+                <FeedPublications />
+            </Grid.Column>
+            <Grid.Column
+                className="home__right"
+                width={5}
+            >
+                <h1>Usuarios que no seguimos</h1>
+            </Grid.Column>
+        </Grid>
     );
 }

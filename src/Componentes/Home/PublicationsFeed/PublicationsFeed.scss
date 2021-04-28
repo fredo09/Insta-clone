@@ -1,0 +1,21 @@
+@import "./../../../scss/index.scss";
+
+.feed-publication {
+  margin-bottom: 50px;
+  border: 1px solid $border-grey;
+
+  &__user {
+    background-color: $background-light !important;
+    padding: 15px !important;
+    a {
+      color: $font-dark !important;
+      img {
+        margin-right: 15px !important;
+      }
+
+      span {
+        font-weight: bold !important;
+      }
+    }
+  }
+}

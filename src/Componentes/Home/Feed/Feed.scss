@@ -1,0 +1,16 @@
+@import "./../../../scss/index.scss";
+
+.ui.inline.loader.active {
+  .spinner-home {
+    padding: 250px auto !important;
+  }
+}
+
+.feed {
+  padding-top: 50px;
+  height: calc(100% - 48px);
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
