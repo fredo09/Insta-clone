@@ -3,7 +3,7 @@
 **/
 
 import React, { useEffect } from 'react';
-import { Image } from 'semantic-ui-react';
+import { Image, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_COMMENTS } from './../../gql/comment';
@@ -14,7 +14,7 @@ import './Comment.scss';
 
 export const Comment = ({ publication }) => {
 
-    const { data, loading, error, startPolling, stopPolling } = useQuery(GET_COMMENTS, {
+    const { data, loading, startPolling, stopPolling } = useQuery(GET_COMMENTS, {
         variables: {
             idPublication: publication.id
         }
@@ -28,7 +28,7 @@ export const Comment = ({ publication }) => {
         }
     }, [stopPolling, stopPolling]);
 
-    if (loading || error) return null;
+    if (loading) return <Loader active inline='centered' className="spinner-comment">Cargando...</Loader>;
 
     const { getComments } = data;
 

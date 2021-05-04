@@ -17,7 +17,12 @@ export const GET_PUBLICATION = gql`
     query getPublications($username: String!){
         getPublications(username: $username){
             id
-            idUser
+            idUser{
+                id
+                name
+                username
+                avatar
+            }
             file
             typeFile
             createAt
@@ -40,4 +45,20 @@ export const GET_FEED_PUBLICATION = gql`
             createAt
         }
     }    
+`;
+
+export const GET_ONLY_PUBLICATION = gql`
+    query getPublication($idPublication: ID!){
+        getPublication(idPublication: $idPublication){
+            id
+            idUser{
+                id
+                name
+                username
+                avatar
+            }
+            file
+            createAt
+        }
+    }
 `;

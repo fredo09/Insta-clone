@@ -14,7 +14,7 @@ import './Feed.scss';
 export const FeedPublications = () => {
 
     //Ejecutamos peticion para obtener las publicaciones de los usuario que seguimos
-    const { data, loading } = useQuery(GET_FEED_PUBLICATION);
+    const { data, loading, error } = useQuery(GET_FEED_PUBLICATION);
 
     const spinner = () => {
         return (
@@ -23,6 +23,8 @@ export const FeedPublications = () => {
     }
 
     if (loading) return spinner();
+
+    if (error) return 'Ocurrio algun error';
 
     const { getPublicationsFeed } = data;
 

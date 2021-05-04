@@ -3,6 +3,7 @@ import { Home } from '../../pages/Home';
 import { Error404 } from '../../pages/Error404';
 import { User } from '../../pages/User';
 import { ChangePassowrd } from './../../pages/ChangePassword';
+import { ViewPublication } from './../../pages/ViewPublication';
 
 //Layouts
 import { LayoutBasico } from './../../layout';
@@ -25,7 +26,13 @@ export const Routers = [
         path: '/cuenta/password/change',
         component: ChangePassowrd,
         layout: LayoutBasico,
-        exac: true
+        exact: true
+    },
+    {
+        path: '/viewPost/:username',
+        component: ViewPublication,
+        layout: LayoutBasico,
+        exact: true
     },
     {
         layout: LayoutBasico,

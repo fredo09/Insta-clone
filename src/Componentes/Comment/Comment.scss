@@ -26,3 +26,11 @@
     padding: 10px;
   }
 }
+
+.spinner-comment {
+  color: $font-dark !important;
+  padding: 60px 0px !important;
+  .ui.dimmer .ui.loader:after {
+    border-color: $font-dark transparent transparent !important;
+  }
+}

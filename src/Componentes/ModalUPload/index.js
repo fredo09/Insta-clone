@@ -45,6 +45,7 @@ export const ModalUPload = ({ show, setShow }) => {
   });
 
   const onPublish = async () => {
+    console.log("data")
     try {
       setIsLoading(true);
       const result = await publish({
@@ -56,7 +57,7 @@ export const ModalUPload = ({ show, setShow }) => {
       const { data } = result;
       if (!data.publish.status) {
         toast.error("Ocurrio un error al publicar la foto");
-        isLoading(false);
+        setIsLoading(false);
       } else {
         onCloseModal();
       }
