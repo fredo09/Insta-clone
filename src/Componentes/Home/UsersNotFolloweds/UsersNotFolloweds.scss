@@ -1,0 +1,21 @@
+@import "./../../../scss/index.scss";
+
+.user-not-followeds {
+  padding-top: 20px !important ;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+
+  &__user {
+    margin-top: 15px;
+    color: $font-dark;
+    img {
+      margin-right: 15px !important;
+      height: 40px !important;
+      width: 40px !important;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+}

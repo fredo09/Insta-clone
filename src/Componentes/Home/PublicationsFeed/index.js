@@ -12,7 +12,7 @@ import ImageNotFound from './../../../assets/png/avatar.png'
 import './PublicationsFeed.scss';
 
 export const PublicationContent = ({ publication }) => {
-    console.log(publication);
+
     return (
         <div className="feed-publication">
             <div className="feed-publication__user">

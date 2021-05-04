@@ -2,7 +2,7 @@
 *    Componente Feed Publications
 **/
 
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Loader } from 'semantic-ui-react';
 import { map } from 'lodash';
 import { useQuery } from '@apollo/client';
@@ -14,7 +14,14 @@ import './Feed.scss';
 export const FeedPublications = () => {
 
     //Ejecutamos peticion para obtener las publicaciones de los usuario que seguimos
-    const { data, loading, error } = useQuery(GET_FEED_PUBLICATION);
+    const { data, loading, error, startPolling, stopPolling } = useQuery(GET_FEED_PUBLICATION);
+
+    useEffect(() => {
+        startPolling(3000);
+        return () => {
+            stopPolling();
+        }
+    }, [stopPolling, startPolling]);
 
     const spinner = () => {
         return (

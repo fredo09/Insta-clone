@@ -4,4 +4,31 @@
   &__left {
     padding-top: 20px !important;
   }
+  &__right {
+    padding-top: 40px !important;
+    margin-top: 20px;
+    a {
+      .account-home {
+        display: flex;
+        flex-direction: row;
+        img {
+          height: 80px !important;
+          width: 80px !important;
+          margin-right: 15px !important;
+        }
+
+        &__desc {
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          span:first-of-type {
+            font-weight: bold !important;
+          }
+          span:last-of-type {
+            color: $font-grey;
+          }
+        }
+      }
+    }
+  }
 }

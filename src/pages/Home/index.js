@@ -3,12 +3,30 @@
 **/
 
 import React from 'react';
-import { Grid } from 'semantic-ui-react'
+import { Grid, Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { FeedPublications } from './../../Componentes/Home/Feed';
+import { UsersNotFolloweds } from './../../Componentes/Home/UsersNotFolloweds';
+import { useQuery } from '@apollo/client';
+import { GET_USER } from './../../gql/user';
+import useAuth from './../../hooks/useContext';
+import ImageNotFound from './../../assets/png/avatar.png';
 
 import './Home.scss';
 
 export const Home = () => {
+
+    const { auth } = useAuth();
+
+    const { data, loading } = useQuery(GET_USER, {
+        variables : {
+            username: auth.username
+        }
+    });
+
+    if (loading) return null;
+
+    const { getUser } = data;
 
     return(
         <Grid className="home">
@@ -20,7 +38,16 @@ export const Home = () => {
             <Grid.Column
                 className="home__right"
                 width={5}>
-                <h1>Usuarios que no seguimos</h1>
+                <Link to={`/${getUser.username}`}>
+                    <div className="account-home">
+                        <Image src={getUser.avatar || ImageNotFound} avatar />
+                        <div className="account-home__desc">
+                            <span> {getUser.name} </span>
+                            <span> { getUser.username } </span>
+                        </div>
+                    </div>
+                </Link>
+                <UsersNotFolloweds />
             </Grid.Column>
         </Grid>
     );

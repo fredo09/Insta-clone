@@ -45,3 +45,15 @@ export const GET_FOLLOWEDS = gql`
         }
     }
 `;
+
+//Mostrando usuarios que no seguimos
+export const GET_NOT_FOLLOWEDS = gql`
+    query getNotFollowed {
+        getNotFollowed{
+            id
+            username
+            name
+            avatar
+        }
+    }
+`;
