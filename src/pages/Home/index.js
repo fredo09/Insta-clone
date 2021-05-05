@@ -18,13 +18,13 @@ export const Home = () => {
 
     const { auth } = useAuth();
 
-    const { data, loading } = useQuery(GET_USER, {
+    const { data, loading, error } = useQuery(GET_USER, {
         variables : {
             username: auth.username
         }
     });
 
-    if (loading) return null;
+    if (loading || error) return null;
 
     const { getUser } = data;
 
