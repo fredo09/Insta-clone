@@ -26,6 +26,7 @@ export const Comment = ({ publication }) => {
         return () => {
             stopPolling();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stopPolling, stopPolling]);
 
     if (loading) return <Loader active inline='centered' className="spinner-comment">Cargando...</Loader>;
