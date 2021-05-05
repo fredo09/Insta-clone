@@ -87,7 +87,7 @@ export const Profile = ({ username, totalPublications }) => {
                     <div className="others">
                         <p className="name">{getUser.name}</p>
                         {getUser.sitioWeb && (
-                            <a href={getUser.sitioWeb} target="_blank" className="siteWeb">
+                            <a href={getUser.sitioWeb} target="_blank" className="siteWeb" rel="noreferrer" >
                                 {getUser.sitioWeb}
                             </a> 
                         )}
