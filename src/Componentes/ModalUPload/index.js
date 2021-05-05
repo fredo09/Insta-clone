@@ -26,6 +26,7 @@ export const ModalUPload = ({ show, setShow }) => {
   };
 
   //Funcion donde llegara la imagen a subir
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onDrop = useCallback((acceptedFile) => {
     const file = acceptedFile[0];
     setFileUpload({

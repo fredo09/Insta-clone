@@ -88,7 +88,7 @@ export const AvatarForm = ({ setShowModal, auth }) => {
         } catch (error) {
             console.log(error)
         }
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     //Configuracion de useDropzone para abrir explorador de archivos

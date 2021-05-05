@@ -41,6 +41,7 @@ export const Followers = ({ username, totalpublications }) => {
         return () => {
             stopPollingFolloers();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stopPollingFolloers, startPollingFollowers]);
 
         // Usando realTime para mostrar los usuarios seguidos de un usuario
@@ -49,6 +50,7 @@ export const Followers = ({ username, totalpublications }) => {
         return () => {
             stopPollingFolloweds();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stopPollingFolloweds, stopPollingFolloweds]);
 
     //retonamos null cuando se este pidiendo información al servidor
