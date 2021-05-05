@@ -9,7 +9,7 @@ import { setContext } from 'apollo-link-context';
 import { getToken } from './../../utils/token';
 
 const httpLink = createUploadLink({
-    uri: 'http://localhost:4000/'
+    uri: 'https://back-insta-clone.herokuapp.com/'
 });
 
 //Configuracion para enviar token para autorizar peticiones
